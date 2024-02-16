@@ -1,19 +1,4 @@
 #Functions go here
-
-#Checks if user has entered yes / no to a question
-def yes_no(question):
-    while True:
-        response = input(question).lower()
-
-        if response == "yes" or response == "y":
-            return "yes"
-        
-        elif response == "no" or response == "n":
-            return "no"
-        
-        else:
-            print("Please answer yes or no")
-
 #Checks that user response is not blank
 def not_blank(question):
     while True:
@@ -54,14 +39,40 @@ def calc_ticket_price(var_age):
 
     return price
 
+# Checks that users enter a valid response
+#Cash / credit based on a list of options
+def string_checker(question, num_letters, valid_responses):
+
+    error = (f"Please choose {valid_responses[0]} or {valid_responses[1]}")
+
+    if num_letters == 1:
+        short_version = 1
+    else:
+        short_version = 2
+    
+    while True:
+        response = input(question).lower()
+
+        for item in valid_responses:
+            if response == item[:short_version] or response == item:
+                return item
+            
+        print(error)
+        print()
+
+
 #Main routine
 
 #Set maximum number of tickets below
 MAX_TICKETS = 3
 tickets_sold = 0
 
+#Lists below
+yes_no_list = ["yes", "no"]
+payment_list = ["cash", "credit"]
+
 #Ask user if they want to see instructions
-want_instructions = yes_no("Do you want to read the instructions? ").lower()
+want_instructions = string_checker("Do you want to read the instructions (y/n): ",1, yes_no_list)
 
 if want_instructions == "yes" or want_instructions == "y":
     print("Instructions go here")
@@ -92,8 +103,8 @@ while tickets_sold < MAX_TICKETS:
 
     #Calculate ticket cost
     ticket_cost = calc_ticket_price(age)
-    print(F"Age: {age}, Ticket Price: ${ticket_cost:.2f}")
-    print()
+
+
 
     tickets_sold += 1
     
