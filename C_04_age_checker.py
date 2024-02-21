@@ -1,18 +1,18 @@
-#Functions go here
+# Functions go here
 
-#Checks users enter an integer to a given question
+# Checks users enter an integer to a given question
 def num_check(question):
     while True:
         try:
             response = int(input(question))
             return response
-        
+
         except ValueError:
             print("Please enter an integer")
             print()
 
 
-#Main routine
+# Main routine
 tickets_sold = 0
 
 while True:
@@ -23,7 +23,7 @@ while True:
 
     age = num_check("What is your age?: ")
     print()
-    
+
     if 12 <= age <= 120:
         pass
 
