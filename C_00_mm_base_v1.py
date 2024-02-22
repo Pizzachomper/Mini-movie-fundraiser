@@ -1,4 +1,5 @@
 import pandas
+import random
 
 
 # Functions go here
@@ -98,7 +99,7 @@ print()
 # Loop to sell tickets
 tickets_sold = 0
 while tickets_sold < MAX_TICKETS:
-    name = not_blank("Enter your name (or 'xxx' to quit)")
+    name = not_blank("Enter your name (or 'xxx' to quit): ")
 
     if name == 'xxx':
         break
@@ -138,7 +139,7 @@ while tickets_sold < MAX_TICKETS:
 
 # Create data from dictionary to organise information
 mini_movie_frame = pandas.DataFrame(mini_movie_dict)
-mini_movie_frame = mini_movie_frame.set_index('Name')
+# mini_movie_frame = mini_movie_frame.set_index('Name')
 
 # Calculate the total ticket cost (ticket + surcharge)
 mini_movie_frame['Total'] = mini_movie_frame['Surcharge'] + mini_movie_frame['Ticket Price']
@@ -155,6 +156,15 @@ add_dollars = ['Ticket Price', 'Surcharge', 'Total', 'Profit']
 for var_item in add_dollars:
     mini_movie_frame[var_item] = mini_movie_frame[var_item].apply(currency)
 
+# Choose a winner from our name list
+winner_name = random.choice(all_names)
+
+# Get position of winner name in list
+win_index = all_names.index(winner_name)
+
+# Look up total amount won
+total_won = mini_movie_frame.at[win_index, 'Total']
+
 print("---- Ticket Data ----")
 print()
 
@@ -167,6 +177,11 @@ print("----- Ticket Cost / Profit -----")
 # Output total ticket sales and profit
 print(F"Total ticket sales: ${total:.2f}")
 print(F"Total profit: ${profit:.2f}")
+
+
+print()
+print("---- Raffle Winner ----")
+print(f"Congratulations {winner_name}, you have won {total_won}, so your ticket is free!")
 
 # Output number of tickets sold
 if tickets_sold == MAX_TICKETS:
