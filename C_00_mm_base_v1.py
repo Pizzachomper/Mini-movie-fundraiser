@@ -92,7 +92,15 @@ mini_movie_dict = {
 want_instructions = string_checker("Do you want to read the instructions (y/n): ", 1, yes_no_list)
 
 if want_instructions == "yes" or want_instructions == "y":
-    print("Instructions go here")
+    print('''\n
+*** Instructions ***
+
+For each ticket, enter . . .
+- The person's name (Cant be blank)
+- Age (Between 12 and 120)
+- Payment method (cash / credit)
+
+When you have entered 
 
 print()
 
