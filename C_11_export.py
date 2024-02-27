@@ -47,20 +47,18 @@ heading = F" --- Mini Movie Fundraiser Ticket Data ({day}/{month}/{year}) --- "
 filename = F"MMF_{year}_{month}_{day}"
 
 # Change frame to a string, so we can export it to a file
-mini_movie_frame = pandas.DataFrame.to_string(mini_movie_frame)
+mini_movie_string = pandas.DataFrame.to_string(mini_movie_frame)
 
-# Create strings for printing
-print("----- Ticket Cost / Profit -----")
-
-# Output total ticket sales and profit
-print(F"Total ticket sales: ${total:.2f}")
-print(F"Total profit: ${profit:.2f}")
+# Create strings for printing . . .
+ticket_cost_heading = "\n--- Ticket Cost / Profit ---"
+total_ticket_sales = f"Total ticket sales: ${total:.2f}"
+total_profit = f"Total profit: ${profit:.2f}"
 
 # Edit text below
-sales_status = F"Total Profit: ${profit}"
+sales_status = "\n** All Tickets have been sold **"
 
-winner_heading = "Raffle Winner"
-winner_text = F"The winner of the raffle is {winner_name}. They have won ${total_won}, So their ticket is free!"
+winner_heading = "\n--- Raffle Winner ---"
+winner_text = F"The winner of the raffle is {winner_name}. They have won ${total_won:.2f}, So their ticket is free!"
 
 # List holding content to print / write to file
 to_write = [heading, mini_movie_string, ticket_cost_heading, total_ticket_sales, total_profit, sales_status, winner_heading, winner_text]
