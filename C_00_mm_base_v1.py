@@ -1,6 +1,6 @@
 import pandas
 import random
-
+from datetime import date
 
 # Functions go here
 # Checks that user response is not blank
@@ -100,7 +100,14 @@ For each ticket, enter . . .
 - Age (Between 12 and 120)
 - Payment method (cash / credit)
 
-When you have entered 
+When you have entered all the users, press 'xxx' to quit.
+
+The program will then display the ticket details
+Including the cost of each ticket, the total cost and the total profit.
+
+This information will automatically written to a text file.
+
+*********************''')
 
 print()
 
@@ -109,8 +116,12 @@ tickets_sold = 0
 while tickets_sold < MAX_TICKETS:
     name = not_blank("Enter your name (or 'xxx' to quit): ")
 
-    if name == 'xxx':
+    if name == 'xxx' and len(all_names) > 0:
         break
+
+    elif name == 'xxx':
+        print("You must sell at least one ticket before quitting")
+        continue
 
     age = num_check("What is your age?: ")
     print()
