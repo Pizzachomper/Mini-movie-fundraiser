@@ -61,7 +61,9 @@ winner_heading = "\n--- Raffle Winner ---"
 winner_text = F"The winner of the raffle is {winner_name}. They have won ${total_won:.2f}, So their ticket is free!"
 
 # List holding content to print / write to file
-to_write = [heading, mini_movie_string, ticket_cost_heading, total_ticket_sales, total_profit, sales_status, winner_heading, winner_text]
+to_write = [heading, mini_movie_string, ticket_cost_heading,
+            total_ticket_sales, total_profit, sales_status,
+            winner_heading, winner_text]
 
 # Print output
 for item in to_write:
