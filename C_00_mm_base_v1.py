@@ -192,7 +192,7 @@ day = today.strftime("%d")
 month = today.strftime("%m")
 year = today.strftime("%y")
 
-heading = F" --- Mini Movie Fundraiser Ticket Data ({day}/{month}/{year}) --- "
+heading = F"\n--- Mini Movie Fundraiser Ticket Data ({day}/{month}/{year}) ---\n"
 filename = F"MMF_{year}_{month}_{day}"
 
 # Change frame to a string, so we can export it to a file
